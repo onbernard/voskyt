@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<div class="vstack gap-3">
+    <form class="hstack gap-3">
+        <div class="input-group mb-3 w-50">
+            <span class="input-group-text"><i class="fa-brands fa-youtube"></i></span>
+            <input type="url" name="url" id="url-field" class="form-control" title="Enter a Youtube url"
+                placeholder="e.g.  https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                pattern="^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$"
+                required autofocus>
+        </div>
+        <div id="cpt-select" class="hstack gap-3 w-50">
+            <select id="yt-select" name="yt" class="form-select" style="width: 50%;" disabled required>
+                <option disabled value="" selected>Subtitle track</option>
+            </select>
+            <select id="ml-select" name="ml" class="form-select" style="width: 40%;" disabled required>
+                <option disabled value="" selected>ML model</option>
+            </select>
+            <button id="submit" type="submit" title="This might take some time" class="btn btn-outline-danger"
+                style="width: 10%;" disabled><i class='fa-solid fa-brain'></i></button>
+        </div>
+    </form>
+    <div id="liveAlertPlaceholder"></div>
+    <div id="transcript" class="transcript-placeholder-1 transcript-placeholder-2 transcript position-relative hstack">
+
+    </div>
+
+    <script src="{{ url_for('static',filename='js/app.js') }}"></script>
+    {% endblock %}

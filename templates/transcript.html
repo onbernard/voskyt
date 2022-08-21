@@ -1,0 +1,29 @@
+<div class="timeline list-group list-group-flush w-50">
+    <div class="caption list-group-item" style="{{yt_captions['offset']}}">
+        
+    </div>
+    {% for cpt in yt_captions['captions'] %}
+    <div class="caption list-group-item" style="{{ cpt['style'] }}">
+        <div class="caption-body position-absolute top-0 start-0 border-dark text-bg-light card">
+            {{ cpt['text'] }}
+        </div>
+        <span class="position-absolute top-0 end-0 badge rounded-pill bg-danger">{{cpt['start']}}s</span>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="vr"></div>
+
+<div class="timeline list-group list-group-flush w-50">
+    <div class="caption list-group-item" style="{{ml_captions['offset']}}">
+        
+    </div>
+    {% for cpt in ml_captions['captions'] %}
+    <div class="caption list-group-item" style="{{ cpt['style'] }}">
+        <span class="position-absolute top-0 start-0 badge rounded-pill bg-danger">{{cpt['start']}}s</span>
+        <div class="position-absolute top-0 end-0 caption-body border-dark text-bg-light card">
+            {{ cpt['text'] }}
+        </div>
+    </div>
+    {% endfor %}
+</div>
